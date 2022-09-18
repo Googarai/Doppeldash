@@ -142,6 +142,7 @@ public class DoppeldashDatabase
     {
         String[] whereValue = { String.valueOf(restaurant.getId()) };
         db.delete(RestaurantTable.NAME, RestaurantTable.Cols.ID + " = ?", whereValue);
+        restaurants.remove(restaurant);
     }
 
     public void updateRestaurant(Restaurant restaurant)
@@ -184,6 +185,7 @@ public class DoppeldashDatabase
     {
         String[] whereValue = { String.valueOf(food.getId()) };
         db.delete(FoodTable.NAME, FoodTable.Cols.ID + " = ?", whereValue);
+        this.food.remove(food);
     }
 
     public void updateFood(Food food)
@@ -228,6 +230,7 @@ public class DoppeldashDatabase
     {
         String[] whereValue = { user.getEmail() };
         db.delete(UserTable.NAME, UserTable.Cols.EMAIL + " = ?", whereValue);
+        users.remove(user);
     }
 
     public void updateUser(User user)
@@ -267,6 +270,7 @@ public class DoppeldashDatabase
     {
         String[] whereValue = { String.valueOf(order.getId()) };
         db.delete(OrderTable.NAME, OrderTable.Cols.ID + " = ?", whereValue);
+        orders.remove(order);
     }
 
     public void updateOrder(Order order)
@@ -310,6 +314,7 @@ public class DoppeldashDatabase
     {
         String[] whereValue = { String.valueOf(orderItem.getId()) };
         db.delete(OrderItemTable.NAME, OrderItemTable.Cols.ID + " = ?", whereValue);
+        orderItems.remove(orderItem);
     }
 
     public void updateOrderItem(OrderItem orderItem)
