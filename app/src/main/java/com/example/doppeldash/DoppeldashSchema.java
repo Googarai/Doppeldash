@@ -60,7 +60,7 @@ public class DoppeldashSchema
         {
             public static final String ID = "order_item_id"; //Primary Key
             public static final String FOOD = "food"; //Reference Key to Food Table
-            public static final String ORDER = "order"; //Reference Key to Order Table
+            public static final String ORDER = "order_id"; //Reference Key to Order Table
         }
     }
 }

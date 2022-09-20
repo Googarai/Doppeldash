@@ -10,7 +10,11 @@ import com.example.doppeldash.DoppeldashSchema.FoodTable;
 import com.example.doppeldash.DoppeldashSchema.UserTable;
 import com.example.doppeldash.DoppeldashSchema.OrderTable;
 import com.example.doppeldash.DoppeldashSchema.OrderItemTable;
+import com.opencsv.CSVReader;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +51,30 @@ public class DoppeldashDatabase
             restaurantCursor.close();
         }
 
+        if (restaurants.isEmpty())
+        {
+            try
+            {
+                InputStreamReader inStream = new InputStreamReader(context.getResources().openRawResource(R.raw.food));
+                CSVReader csvReader = new CSVReader(inStream);
+                String[] line;
+
+                while ((line = csvReader.readNext()) != null)
+                {
+                    int id = Integer.parseInt(line[0]);
+                    String name = line[1];
+                    String desc = line[2];
+                    String image = line[3];
+                    double price = Double.parseDouble(line[4]);
+                    int restID = Integer.parseInt(line[5]);
+                    food.add(new Food(id, name, desc, image, price, restID));
+                }
+
+                inStream.close();
+            }
+            catch (IOException ignored) { }
+        }
+
         FoodCursor foodCursor = new FoodCursor(db.query(FoodTable.NAME,
                 null,
                 null,
@@ -65,6 +93,30 @@ public class DoppeldashDatabase
         }
         finally {
             foodCursor.close();
+        }
+
+        if (food.isEmpty())
+        {
+            try
+            {
+                InputStreamReader inStream = new InputStreamReader(context.getResources().openRawResource(R.raw.food));
+                CSVReader csvReader = new CSVReader(inStream);
+                String[] line;
+
+                while ((line = csvReader.readNext()) != null)
+                {
+                    int id = Integer.parseInt(line[0]);
+                    String name = line[1];
+                    String desc = line[2];
+                    String image = line[3];
+                    double price = Double.parseDouble(line[4]);
+                    int restID = Integer.parseInt(line[5]);
+                    food.add(new Food(id, name, desc, image, price, restID));
+                }
+
+                inStream.close();
+            }
+            catch (IOException ignored) { }
         }
 
         UserCursor userCursor = new UserCursor(db.query(UserTable.NAME,
