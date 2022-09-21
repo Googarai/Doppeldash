@@ -391,4 +391,26 @@ public class DoppeldashDatabase
             return new OrderItem(id, food, order);
         }
     }
+
+    public Restaurant getRestaurant(int i)
+    {
+        return restaurants.get(i);
+    }
+
+    public int getNumRestaurants()
+    {
+        return restaurants.size();
+    }
+
+
+
+    public Food getFood(int i)
+    {
+        return food.get(i);
+    }
+    public int getNumFood()
+    {
+        return food.size();
+    }
+
 }
