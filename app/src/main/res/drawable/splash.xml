@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:drawable="@color/doppel_purple"/>
+        <item
+            android:drawable="@drawable/doppeldash_white_logo"
+            android:gravity="center"
+            android:height="30dp"
+            android:width="300dp"/>
+    </layer-list>
