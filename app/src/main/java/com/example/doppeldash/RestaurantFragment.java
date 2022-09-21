@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 public class RestaurantFragment extends Fragment {
 
+    private DoppeldashDatabase db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,8 +31,9 @@ public class RestaurantFragment extends Fragment {
         RecyclerView restRecycView = (RecyclerView) restRecyc.findViewById(R.id.restListRecycler);
         restRecycView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
-        RestaurantData data = RestaurantData.get(); // retrieve restaurant data object (list of restaurants)
-        RestaurantAdapter restAdapt = new RestaurantAdapter(data);
+        ; // retrieve restaurant data object (list of restaurants)
+        FragmentActivity activity = getActivity();
+        RestaurantAdapter restAdapt = new RestaurantAdapter(db);
 
         restRecycView.setAdapter(restAdapt);
 
@@ -40,16 +43,16 @@ public class RestaurantFragment extends Fragment {
     }
 
     private class RestaurantAdapter extends RecyclerView.Adapter<RestVHolder>{
-        private RestaurantData data;
+        private DoppeldashDatabase data;
 
-        public RestaurantAdapter (RestaurantData newData) {
+        public RestaurantAdapter (DoppeldashDatabase newData) {
             this.data = newData;
         }
 
 
         @Override
         public int getItemCount() {
-            return data.getSize();
+            return data.getNumRestaurants();
         }
 
         @NonNull
@@ -90,5 +93,10 @@ public class RestaurantFragment extends Fragment {
             restName.setText(newRItem.getName());
         }
 
+    }
+
+    public void setDatabase(DoppeldashDatabase inDB)
+    {
+        db = inDB;
     }
 }

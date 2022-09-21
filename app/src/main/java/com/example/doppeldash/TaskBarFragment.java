@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import org.apache.commons.logging.Log;
+
 public class TaskBarFragment extends Fragment {
 
 
@@ -26,7 +28,7 @@ public class TaskBarFragment extends Fragment {
         ImageButton cart = (ImageButton) taskView.findViewById(R.id.cartButton);
         ImageButton account = (ImageButton) taskView.findViewById(R.id.accountButton);
 
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getParentFragmentManager();
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +46,18 @@ public class TaskBarFragment extends Fragment {
                 fm.beginTransaction().replace(R.id.mainScreenFragment, MainActivity.cartFragment).commit();
             }
         });
+
+       account.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               if (MainActivity.loginFragment == null)
+               {
+                   MainActivity.loginFragment = new LoginFragment();
+               }
+               fm.beginTransaction().replace(R.id.mainScreenFragment, MainActivity.loginFragment).commit();
+           }
+       });
+
         // Inflate the layout for this fragment
         return taskView;
     }

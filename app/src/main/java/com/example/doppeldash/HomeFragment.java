@@ -24,15 +24,14 @@ public class HomeFragment extends Fragment {
     static int serve = 0;
     EditText serveAmount;
     ImageButton increaseServe, decreaseServe, addServe;
+    DoppeldashDatabase db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate the layout for this fragment
-
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getParentFragmentManager();
 
         RestaurantFragment restFrag = (RestaurantFragment) fm.findFragmentByTag("fragment_restaurant");
 
@@ -40,14 +39,15 @@ public class HomeFragment extends Fragment {
 
         if (foodFrag == null){
             foodFrag = new FoodFragment();
+            foodFrag.setDatabase(db);
             fm.beginTransaction().add(R.id.foodListFrame, foodFrag).commit();
         }
 
         if (restFrag == null){
             restFrag = new RestaurantFragment();
+            restFrag.setDatabase(db);
             fm.beginTransaction().add(R.id.restaurantListFrame, restFrag).commit();
         }
-
 
 
         increaseServe = (ImageButton) v.findViewById(R.id.increaseServe);
@@ -112,5 +112,8 @@ public class HomeFragment extends Fragment {
         return v;
     }
 
-
+    public void setDatabase(DoppeldashDatabase inDB)
+    {
+        db = inDB;
+    }
 }

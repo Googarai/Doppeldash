@@ -55,7 +55,7 @@ public class DoppeldashDatabase
         {
             try
             {
-                InputStreamReader inStream = new InputStreamReader(context.getResources().openRawResource(R.raw.food));
+                InputStreamReader inStream = new InputStreamReader(context.getResources().openRawResource(R.raw.restaurants));
                 CSVReader csvReader = new CSVReader(inStream);
                 String[] line;
 
@@ -63,11 +63,8 @@ public class DoppeldashDatabase
                 {
                     int id = Integer.parseInt(line[0]);
                     String name = line[1];
-                    String desc = line[2];
-                    String image = line[3];
-                    double price = Double.parseDouble(line[4]);
-                    int restID = Integer.parseInt(line[5]);
-                    food.add(new Food(id, name, desc, image, price, restID));
+                    String image = line[2];
+                    restaurants.add(new Restaurant(id, name, image));
                 }
 
                 inStream.close();
@@ -402,12 +399,11 @@ public class DoppeldashDatabase
         return restaurants.size();
     }
 
-
-
     public Food getFood(int i)
     {
         return food.get(i);
     }
+
     public int getNumFood()
     {
         return food.size();
