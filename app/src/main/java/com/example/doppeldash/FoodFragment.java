@@ -63,7 +63,6 @@ public class FoodFragment extends Fragment {
         private ImageView foodImage;
         private TextView foodName;
         private TextView foodDesc;
-        private TextView foodPrice;
 
         public FoodVHolder(LayoutInflater fLI, ViewGroup parent){
             super(fLI.inflate(R.layout.food_item_layout, parent, false));
@@ -71,16 +70,14 @@ public class FoodFragment extends Fragment {
             foodImage = (ImageView) itemView.findViewById(R.id.foodImage);
             foodName = (TextView) itemView.findViewById(R.id.foodLabel);
             foodDesc = (TextView) itemView.findViewById((R.id.foodDescription));
-            foodPrice = (TextView) itemView.findViewById(R.id.foodPrice);
         }
 
         public void bind(Food newFItem){
             String uri = "@drawable/" + newFItem.getImage();
             int imageResource = getResources().getIdentifier(uri, "drawable", getContext().getPackageName());
             foodImage.setImageResource(imageResource);
-            foodName.setText(newFItem.getName());
+            foodName.setText(newFItem.getName() + " - $"+String.format("%.2f", newFItem.getPrice()));
             foodDesc.setText(newFItem.getDescription());
-            foodPrice.setText("$"+String.valueOf(newFItem.getPrice()));
         }
 
     }
