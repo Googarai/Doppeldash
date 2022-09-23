@@ -37,6 +37,7 @@ public class DoppeldashSchema
         {
             public static final String EMAIL = "email"; //Primary Key
             public static final String PASSWORD = "password";
+            public static final String NAME = "name";
         }
     }
 

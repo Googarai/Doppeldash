@@ -9,10 +9,9 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static HomeFragment homeFrag;
-    public static CartFragment cartFragment;
-    public static AccountFragment accountFragment;
-    public static LoginFragment loginFragment;
+    private HomeFragment homeFrag;
+    private TaskBarFragment taskFrag;
+    private AccountFragment accountFragment;
     private DoppeldashDatabase db;
 
     @Override
@@ -28,10 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         homeFrag = (HomeFragment) fm.findFragmentByTag("fragment_home");
-        cartFragment = (CartFragment) fm.findFragmentByTag("fragment_cart");
-        loginFragment = (LoginFragment) fm.findFragmentByTag("fragment_login");
         accountFragment = (AccountFragment) fm.findFragmentByTag("fragment_account");
-
+        taskFrag = (TaskBarFragment) fm.findFragmentByTag("fragment_task_bar");
 
         if (homeFrag==null){
             homeFrag = new HomeFragment();
@@ -39,11 +36,9 @@ public class MainActivity extends AppCompatActivity {
             fm.beginTransaction().add(R.id.mainScreenFragment, homeFrag).commit();
         }
 
-
-        TaskBarFragment taskFrag = (TaskBarFragment) fm.findFragmentByTag("fragment_task_bar");
-
         if (taskFrag == null){
             taskFrag = new TaskBarFragment();
+            taskFrag.setDatabase(db);
             fm.beginTransaction().add(R.id.controlFrame, taskFrag).commit();
         }
     }

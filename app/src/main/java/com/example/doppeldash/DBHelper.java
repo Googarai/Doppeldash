@@ -34,7 +34,8 @@ public class DBHelper extends SQLiteOpenHelper
                 FoodTable.Cols.RESTAURANT + " INTEGER)");
         db.execSQL("CREATE TABLE " + UserTable.NAME + "(" +
                 UserTable.Cols.EMAIL + " TEXT, " +
-                UserTable.Cols.PASSWORD + " TEXT)");
+                UserTable.Cols.PASSWORD + " TEXT, " +
+                UserTable.Cols.NAME + " TEXT)");
         db.execSQL("CREATE TABLE " + OrderTable.NAME + "(" +
                 OrderTable.Cols.ID + " INTEGER, " +
                 OrderTable.Cols.USER + " TEXT, " +

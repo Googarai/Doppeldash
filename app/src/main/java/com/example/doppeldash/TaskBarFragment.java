@@ -14,9 +14,10 @@ import org.apache.commons.logging.Log;
 
 public class TaskBarFragment extends Fragment {
 
-
-
-
+    private DoppeldashDatabase db;
+    private CartFragment cartFragment;
+    private LoginFragment loginFragment;
+    private HomeFragment homeFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,32 +34,41 @@ public class TaskBarFragment extends Fragment {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fm.beginTransaction().replace(R.id.mainScreenFragment, MainActivity.homeFrag).commit();
+                homeFragment = (HomeFragment) fm.findFragmentByTag("fragment_home");
+                fm.beginTransaction().replace(R.id.mainScreenFragment, homeFragment).commit();
             }
         });
 
        cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (MainActivity.cartFragment == null){
-                    MainActivity.cartFragment = new CartFragment();
+                cartFragment = (CartFragment) fm.findFragmentByTag("fragment_cart");
+                if (cartFragment == null){
+                    cartFragment = new CartFragment();
                 }
-                fm.beginTransaction().replace(R.id.mainScreenFragment, MainActivity.cartFragment).commit();
+                fm.beginTransaction().replace(R.id.mainScreenFragment, cartFragment).commit();
             }
         });
 
        account.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               if (MainActivity.loginFragment == null)
+               loginFragment = (LoginFragment) fm.findFragmentByTag("fragment_login");
+               if (loginFragment == null)
                {
-                   MainActivity.loginFragment = new LoginFragment();
+                   loginFragment = new LoginFragment();
                }
-               fm.beginTransaction().replace(R.id.mainScreenFragment, MainActivity.loginFragment).commit();
+               loginFragment.setDatabase(db);
+               fm.beginTransaction().replace(R.id.mainScreenFragment, loginFragment).commit();
            }
        });
 
         // Inflate the layout for this fragment
         return taskView;
+    }
+
+    public void setDatabase(DoppeldashDatabase inDB)
+    {
+        db = inDB;
     }
 }

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
 import com.example.doppeldash.DoppeldashSchema.RestaurantTable;
 import com.example.doppeldash.DoppeldashSchema.FoodTable;
 import com.example.doppeldash.DoppeldashSchema.UserTable;
@@ -272,6 +274,7 @@ public class DoppeldashDatabase
         ContentValues cv = new ContentValues();
         cv.put(UserTable.Cols.EMAIL, user.getEmail());
         cv.put(UserTable.Cols.PASSWORD, user.getPassword());
+        cv.put(UserTable.Cols.NAME, user.getName());
         db.insert(UserTable.NAME, null, cv);
     }
 
@@ -287,6 +290,7 @@ public class DoppeldashDatabase
         ContentValues cv = new ContentValues();
         cv.put(UserTable.Cols.EMAIL, user.getEmail());
         cv.put(UserTable.Cols.PASSWORD, user.getPassword());
+        cv.put(UserTable.Cols.NAME, user.getName());
         String[] whereValue = { user.getEmail() };
         db.update(UserTable.NAME, cv, UserTable.Cols.EMAIL + " = ?", whereValue);
     }
@@ -299,7 +303,8 @@ public class DoppeldashDatabase
         {
             String email = getString(getColumnIndex(UserTable.Cols.EMAIL));
             String password = getString(getColumnIndex(UserTable.Cols.PASSWORD));
-            return new User(email, password);
+            String name = getString(getColumnIndex(UserTable.Cols.NAME));
+            return new User(email, password, name);
         }
     }
 
@@ -407,6 +412,16 @@ public class DoppeldashDatabase
     public int getNumFood()
     {
         return food.size();
+    }
+
+    public User getUser(int i)
+    {
+        return users.get(i);
+    }
+
+    public int getNumUsers()
+    {
+        return users.size();
     }
 
 }
