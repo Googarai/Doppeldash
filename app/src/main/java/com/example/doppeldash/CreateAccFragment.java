@@ -9,6 +9,7 @@ import android.widget.EditText;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
@@ -16,7 +17,9 @@ import com.google.android.material.snackbar.Snackbar;
 public class CreateAccFragment extends Fragment {
 
     private DoppeldashDatabase db;
+    private UserViewModel uvm;
     LoginFragment loginFragment;
+    AccountFragment accountFragment;
     EditText email, name, password, retypePassword;
     AppCompatButton signUp, back;
 
@@ -25,6 +28,8 @@ public class CreateAccFragment extends Fragment {
     {
         View v = inflater.inflate(R.layout.fragment_create_acc, container, false);
         FragmentManager fm = getParentFragmentManager();
+        db = new DoppeldashDatabase();
+        db.load(getActivity());
 
         email = (EditText) v.findViewById(R.id.email);
         name = (EditText) v.findViewById(R.id.name);
@@ -82,14 +87,18 @@ public class CreateAccFragment extends Fragment {
                     {
                         String nameText = name.getText().toString();
                         String passText = password.getText().toString();
-                        db.addUser(new User(emailText, passText, nameText));
+                        User currUser = new User(emailText, passText, nameText);
+                        db.addUser(currUser);
 
-                        AccountFragment accountFragment = (AccountFragment) fm.findFragmentByTag("fragment_login");
-                        if (loginFragment == null)
+                        uvm = new ViewModelProvider(getActivity()).get(UserViewModel.class);
+                        uvm.setUser(currUser);
+
+                        accountFragment = (AccountFragment) fm.findFragmentByTag("fragment_account");
+                        if (accountFragment == null)
                         {
-                            loginFragment = new LoginFragment();
+                            accountFragment = new AccountFragment();
                         }
-                        fm.beginTransaction().replace(R.id.mainScreenFragment, loginFragment).commit();
+                        fm.beginTransaction().replace(R.id.mainScreenFragment, accountFragment).commit();
                     }
                 }
             }
@@ -108,10 +117,5 @@ public class CreateAccFragment extends Fragment {
         });
 
         return v;
-    }
-
-    public void setDatabase(DoppeldashDatabase inDB)
-    {
-        db = inDB;
     }
 }

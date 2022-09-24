@@ -28,10 +28,13 @@ public class RestaurantFragment extends Fragment {
 
         View restRecyc = inflater.inflate(R.layout.fragment_restaurant, container, false);
 
+        db = new DoppeldashDatabase();
+        db.load(getActivity());
+
         RecyclerView restRecycView = (RecyclerView) restRecyc.findViewById(R.id.restListRecycler);
         restRecycView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
-        ; // retrieve restaurant data object (list of restaurants)
+        // retrieve restaurant data object (list of restaurants)
         FragmentActivity activity = getActivity();
         RestaurantAdapter restAdapt = new RestaurantAdapter(db);
 
@@ -93,10 +96,5 @@ public class RestaurantFragment extends Fragment {
             restName.setText(newRItem.getName());
         }
 
-    }
-
-    public void setDatabase(DoppeldashDatabase inDB)
-    {
-        db = inDB;
     }
 }

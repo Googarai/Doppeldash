@@ -27,7 +27,7 @@ public class DoppeldashDatabase
     List<User> users = new ArrayList<>();
     List<Order> orders = new ArrayList<>();
     List<OrderItem> orderItems = new ArrayList<>();
-    private SQLiteDatabase db;
+    SQLiteDatabase db;
 
     public void load(Context context)
     {
@@ -66,7 +66,7 @@ public class DoppeldashDatabase
                     int id = Integer.parseInt(line[0]);
                     String name = line[1];
                     String image = line[2];
-                    restaurants.add(new Restaurant(id, name, image));
+                    addRestaurant(new Restaurant(id, name, image));
                 }
 
                 inStream.close();
@@ -110,7 +110,7 @@ public class DoppeldashDatabase
                     String image = line[3];
                     double price = Double.parseDouble(line[4]);
                     int restID = Integer.parseInt(line[5]);
-                    food.add(new Food(id, name, desc, image, price, restID));
+                    addFood(new Food(id, name, desc, image, price, restID));
                 }
 
                 inStream.close();

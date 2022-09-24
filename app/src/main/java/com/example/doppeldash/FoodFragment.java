@@ -22,6 +22,8 @@ public class FoodFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        db = new DoppeldashDatabase();
+        db.load(getActivity());
 
         View foodRecyc = inflater.inflate(R.layout.fragment_food_list, container, false); // create and inflate food fragment view
 
@@ -80,10 +82,5 @@ public class FoodFragment extends Fragment {
             foodDesc.setText(newFItem.getDescription());
         }
 
-    }
-
-    public void setDatabase(DoppeldashDatabase inDB)
-    {
-        db = inDB;
     }
 }

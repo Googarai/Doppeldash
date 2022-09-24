@@ -9,37 +9,30 @@
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable-anydpi/account_art.xml" value="0.2" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable-anydpi/cart_art.xml" value="0.3555" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable-anydpi/home_art.xml" value="0.2" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable-hdpi/view_menu_button.xml" value="0.217" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.217" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/bottom_navigation_button.xml" value="0.218" />
+        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable-hdpi/view_menu_button.xml" value="0.1" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/button_rounded.xml" value="0.196" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/button_shape_taskbar.xml" value="0.196" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/constraint_layout_rounded.xml" value="0.218" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/edit_text_cursor.xml" value="0.218" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/edit_text_layout_rounded.xml" value="0.3555" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/ic_baseline_back_24.xml" value="0.217" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.3555" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/ic_baseline_keyboard_backspace_24.xml" value="0.217" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.3555" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/rounded_container.xml" value="0.3555" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/drawable/splash.xml" value="0.1875" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout-land/activity_main.xml" value="0.1591710758377425" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout-land/fragment_create_acc.xml" value="0.1591710758377425" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout-land/fragment_home.xml" value="0.15260416666666668" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/food_item_layout.xml" value="0.3776041666666667" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_account.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/food_item_layout.xml" value="0.2013793103448276" />
+        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_account.xml" value="0.25" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_cart.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_create_acc.xml" value="0.33" />
+        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_create_acc.xml" value="0.2477355072463768" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_food_list.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_home.xml" value="0.27037037037037037" />
+        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_main.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_main2.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_restaurant.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/fragment_task_bar.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/restaurant_item.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/restaurant_layout.xml" value="0.5" />
+        <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/layout/restaurant_layout.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/19748852/StudioProjects/Doppeldash/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1875" />
       </map>
     </option>

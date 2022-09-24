@@ -24,28 +24,28 @@ public class DBHelper extends SQLiteOpenHelper
         db.execSQL("CREATE TABLE " + RestaurantTable.NAME + "(" +
                 RestaurantTable.Cols.ID + " INTEGER, " +
                 RestaurantTable.Cols.NAME + " TEXT, " +
-                RestaurantTable.Cols.IMAGE + "TEXT)");
+                RestaurantTable.Cols.IMAGE + " TEXT )");
         db.execSQL("CREATE TABLE " + FoodTable.NAME + "(" +
                 FoodTable.Cols.ID + " INTEGER, " +
                 FoodTable.Cols.NAME + " TEXT, " +
                 FoodTable.Cols.DESCRIPTION + " TEXT, " +
                 FoodTable.Cols.IMAGE + " TEXT, " +
                 FoodTable.Cols.PRICE + " REAL, " +
-                FoodTable.Cols.RESTAURANT + " INTEGER)");
+                FoodTable.Cols.RESTAURANT + " INTEGER )");
         db.execSQL("CREATE TABLE " + UserTable.NAME + "(" +
                 UserTable.Cols.EMAIL + " TEXT, " +
                 UserTable.Cols.PASSWORD + " TEXT, " +
-                UserTable.Cols.NAME + " TEXT)");
+                UserTable.Cols.NAME + " TEXT )");
         db.execSQL("CREATE TABLE " + OrderTable.NAME + "(" +
                 OrderTable.Cols.ID + " INTEGER, " +
                 OrderTable.Cols.USER + " TEXT, " +
                 OrderTable.Cols.TOTALCOST + " REAL, " +
                 OrderTable.Cols.DATE + " TEXT, " +
-                OrderTable.Cols.TIME + " TEXT)");
+                OrderTable.Cols.TIME + " TEXT )");
         db.execSQL("CREATE TABLE " + OrderItemTable.NAME + "(" +
                 OrderItemTable.Cols.ID + " INTEGER, " +
                 OrderItemTable.Cols.FOOD + " INTEGER, " +
-                OrderItemTable.Cols.ORDER + " INTEGER)");
+                OrderItemTable.Cols.ORDER + " INTEGER )");
     }
 
     @Override public void onUpgrade(SQLiteDatabase db, int i, int j) { }
